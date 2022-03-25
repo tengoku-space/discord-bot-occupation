@@ -1,0 +1,24 @@
+{
+  "name": "web-discord-chatbot",
+  "version": "1.0.0",
+  "description": "Discord Chatbot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endaye/web-discord-chatbot.git"
+  },
+  "keywords": [
+    "Discord",
+    "chat",
+    "bot"
+  ],
+  "author": "Yuancheng Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/endaye/web-discord-chatbot/issues"
+  },
+  "homepage": "https://github.com/endaye/web-discord-chatbot#readme"
+}
