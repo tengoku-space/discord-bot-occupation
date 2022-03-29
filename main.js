@@ -140,7 +140,7 @@ const nextQuestion = async (interaction, nextid) => {
   const nextId = nextid || Questions[id].nextId;
   if (nextId) {
     await interaction.followUp({
-      content: Questions[nextId].content,
+      embeds: Questions[nextId].embeds,
       components: Questions[nextId].components,
       ephemeral: true,
     });

@@ -17,7 +17,12 @@ const Questions = {
   q1: {
     start: false,
     nextId: "q2",
-    content: "Q1: What do you want to eat?\nA: Apple.\nB: Banana.\nC. Orange",
+    embeds: [
+      new Discord.MessageEmbed()
+        .setTitle("Q1: What do you want to eat?")
+        .setDescription("<A> Apple.\n<B> Banana.\n<C> Orange.")
+        .setImage("https://pbs.twimg.com/media/FNQUtZ0VIAA4N5s?format=jpg"),
+    ],
     components: [
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageSelectMenu()
@@ -44,7 +49,13 @@ const Questions = {
   },
   q2: {
     start: false,
-    content: "Q2: What's your favorite color?\nA: Red.\nB: Green.\nC. Blue",
+    content: "Q2: What's your favorite color?\n",
+    embeds: [
+        new Discord.MessageEmbed()
+          .setTitle("Q2: What's your favorite color?")
+          .setDescription("<A> Red.\n<B> Green.\n<C> Blue.")
+          .setImage("https://pbs.twimg.com/media/FNQUtZ0VIAA4N5s?format=jpg"),
+      ],
     components: [
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageSelectMenu()
