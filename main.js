@@ -81,7 +81,7 @@ const initButtonCollector = () => {
       if (id) {
         await nextQuestion(interaction, id);
       } else {
-        checkAnswers(interaction);
+        await checkAnswers(interaction);
       }
     }
   });
@@ -101,7 +101,7 @@ const initMenuCollector = () => {
     if (Questions[interaction.customId].nextId) {
       await nextQuestion(interaction);
     } else {
-      checkAnswers(interaction);
+      await checkAnswers(interaction);
     }
   });
 };
@@ -147,8 +147,15 @@ const nextQuestion = async (interaction, nextid) => {
   }
 };
 
-const checkAnswers = (interaction) => {
+const checkAnswers = async (interaction) => {
   console.log(interaction.user.id, answers[interaction.user.id]);
+  //TODO: check answers, get role
+  const roleName = ROLES[0];
+  const role = interaction.member.guild.roles.cache.find(
+    (r) => r.name === roleName
+  );
+  await interaction.member.roles.add(role);
+  interaction.followUp({ content: `You're ${roleName}.`, ephemeral: true });
 };
 
 client.login(TOKEN);
