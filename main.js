@@ -37,9 +37,12 @@ client.once("ready", async () => {
 
 // New user joined
 client.on("guildMemberAdd", (newUser) => {
-  // check roles
-  let role = newUser.guild.roles.filter((role) => !(role.name in ROLES));
-  if (role.length === 0) {
+  if (checkRoleExist(newUser)) {
+    // already had a role
+    channel.updateOverwrite(newUser, {
+      permissions: [],
+    });
+  } else {
     // new user
     channel.updateOverwrite(newUser, {
       permissions: [
@@ -47,13 +50,13 @@ client.on("guildMemberAdd", (newUser) => {
         Discord.Permissions.FLAGS.READ_MESSAGE_HISTORY,
       ],
     });
-  } else {
-    // already had a role
-    channel.updateOverwrite(newUser, {
-      permissions: [],
-    });
   }
 });
+
+const checkRoleExist = (user) => {
+  let role = user.guild.roles.filter((role) => !(role.name in ROLES));
+  return role.length > 0;
+};
 
 const initButtonCollector = () => {
   const filter = (interaction) => interaction.isButton();
@@ -63,12 +66,23 @@ const initButtonCollector = () => {
   });
 
   collector.on("collect", async (interaction) => {
-    console.log("aaa");
     const uid = interaction.user.id;
     await interaction.deferUpdate();
     if (!answers[uid]) {
       answers[uid] = {};
-      nextQuestion(interaction);
+      await nextQuestion(interaction);
+    } else if (Object.keys(answers[uid]).length === 0) {
+      await nextQuestion(interaction);
+    } else {
+      let id = "q1";
+      while (id && answers[uid][id]) {
+        id = Questions[id].nextId;
+      }
+      if (id) {
+        await nextQuestion(interaction, id);
+      } else {
+        checkAnswers(interaction);
+      }
     }
   });
 };
@@ -81,12 +95,11 @@ const initMenuCollector = () => {
   });
 
   collector.on("collect", async (interaction) => {
-    console.log("bbbb");
-    await interaction.deferUpdate();
     saveAnswer(interaction);
-    disableQuestion(interaction);
+    await interaction.deferUpdate();
+    await disableQuestion(interaction);
     if (Questions[interaction.customId].nextId) {
-      nextQuestion(interaction);
+      await nextQuestion(interaction);
     } else {
       checkAnswers(interaction);
     }
@@ -115,26 +128,27 @@ const rowAnswer = new Discord.MessageActionRow().addComponents(
     ])
 );
 
-const disableQuestion = (interaction) => {
+const disableQuestion = async (interaction) => {
   rowAnswer.components[0].setPlaceholder(interaction.values[0]);
-  interaction.editReply({
+  await interaction.editReply({
     components: [rowAnswer],
   });
 };
 
-const nextQuestion = async (interaction) => {
+const nextQuestion = async (interaction, nextid) => {
   const id = interaction.customId;
-  const nextId = Questions[id].nextId;
-  const msg = interaction.message;
-  channel.send({
-    content: Questions[nextId].content,
-    components: Questions[nextId].components,
-    ephemeral: true,
-  });
+  const nextId = nextid || Questions[id].nextId;
+  if (nextId) {
+    await interaction.followUp({
+      content: Questions[nextId].content,
+      components: Questions[nextId].components,
+      ephemeral: true,
+    });
+  }
 };
 
 const checkAnswers = (interaction) => {
-  console.log(answers[interaction.user.id]);
+  console.log(interaction.user.id, answers[interaction.user.id]);
 };
 
 client.login(TOKEN);
