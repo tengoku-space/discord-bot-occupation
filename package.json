@@ -22,8 +22,7 @@
   },
   "homepage": "https://github.com/endaye/web-discord-chatbot#readme",
   "dependencies": {
-    "discord.js": "^13.6.0",
-    "mongoose": "^6.2.8"
+    "discord.js": "^13.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
