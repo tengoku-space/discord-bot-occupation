@@ -118,7 +118,7 @@ const saveAnswer = (interaction) => {
   const id = interaction.customId;
   if (interaction.values && interaction.values.length > 0) {
     answers[uid][id] = interaction.values[0];
-    console.log(answers);
+    // console.log(answers);
   }
 };
 
@@ -155,9 +155,28 @@ const nextQuestion = async (interaction, nextid) => {
 };
 
 const checkAnswers = async (interaction) => {
-  console.log(interaction.user.id, answers[interaction.user.id]);
-  //TODO: check answers, get role
-  const roleName = ROLES[0];
+  // console.log(interaction.user.id, answers[interaction.user.id]);
+  // TODO: hardcoding here
+  const qIds = ["q1", "q2", "q3", "q4", "q5", "q6"];
+  const scores = [0, 0, 0, 0, 0, 0]; // an emtpy array match rolss
+
+  qIds.forEach((qid) => {
+    const an = answers[interaction.user.id][qid];
+    const sc = Questions[qid].scores[an];
+    sc.forEach((idx) => scores[idx]++);
+  });
+
+  const max = Math.max(...scores);
+  const indexes = [];
+  for (let index = 0; index < scores.length; index++) {
+    if (scores[index] === max) {
+      indexes.push(index);
+    }
+  }
+
+  let idx = indexes[Math.floor(Math.random() * indexes.length)] || 0;
+  // get role
+  const roleName = ROLES[idx];
   const role = interaction.member.guild.roles.cache.find(
     (r) => r.name === roleName
   );

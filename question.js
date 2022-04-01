@@ -39,7 +39,7 @@ const Questions = {
           ])
       ),
     ],
-    answers: {
+    scores: {
       Yes: [0, 3, 5],
       No: [1, 2, 4],
     },
@@ -71,7 +71,7 @@ const Questions = {
           ])
       ),
     ],
-    answers: {
+    scores: {
       Yes: [0, 1, 4],
       No: [2, 3, 5],
     },
@@ -103,7 +103,7 @@ const Questions = {
           ])
       ),
     ],
-    answers: {
+    scores: {
       Yes: [1, 2, 4],
       No: [0, 3, 5],
     },
@@ -135,7 +135,7 @@ const Questions = {
           ])
       ),
     ],
-    answers: {
+    scores: {
       Yes: [0, 3, 4],
       No: [1, 2, 5],
     },
@@ -167,7 +167,7 @@ const Questions = {
           ])
       ),
     ],
-    answers: {
+    scores: {
       Yes: [3, 4, 5],
       No: [0, 1, 2],
     },
@@ -198,7 +198,7 @@ const Questions = {
           ])
       ),
     ],
-    answers: {
+    scores: {
       Yes: [1, 2, 5],
       No: [0, 3, 4],
     },
