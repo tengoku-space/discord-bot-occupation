@@ -4,12 +4,12 @@ const Questions = require("./question");
 //! Config
 const TOKEN = "OTU2ODYxMDM4MTAyNDcwNjU4.Yj2YSQ.L_rOW3g5feySOv5Y6tTDl5KhNiE";
 const ROLES = [
-  "Aviator",
-  "Guardian",
-  "Treatment Team",
-  "Bounty Hunter",
-  "Prayer",
-  "Shinobi Genshi",
+  "Aviator", // 0
+  "Guardian", // 1
+  "Treatment Team", // 2
+  "Bounty Hunter", // 3
+  "Prayer", // 4
+  "Shinobi Genshi", // 5
 ];
 const CHANNEL_ID = "958138084699033620";
 

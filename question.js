@@ -39,6 +39,10 @@ const Questions = {
           ])
       ),
     ],
+    answers: {
+      Yes: [0, 3, 5],
+      No: [1, 2, 4],
+    },
   },
   q2: {
     start: false,
@@ -67,6 +71,10 @@ const Questions = {
           ])
       ),
     ],
+    answers: {
+      Yes: [0, 1, 4],
+      No: [2, 3, 5],
+    },
   },
   q3: {
     start: false,
@@ -95,6 +103,10 @@ const Questions = {
           ])
       ),
     ],
+    answers: {
+      Yes: [1, 2, 4],
+      No: [0, 3, 5],
+    },
   },
   q4: {
     start: false,
@@ -123,6 +135,10 @@ const Questions = {
           ])
       ),
     ],
+    answers: {
+      Yes: [0, 3, 4],
+      No: [1, 2, 5],
+    },
   },
   q5: {
     start: false,
@@ -151,6 +167,10 @@ const Questions = {
           ])
       ),
     ],
+    answers: {
+      Yes: [3, 4, 5],
+      No: [0, 1, 2],
+    },
   },
   q6: {
     start: false,
@@ -178,6 +198,10 @@ const Questions = {
           ])
       ),
     ],
+    answers: {
+      Yes: [1, 2, 5],
+      No: [0, 3, 4],
+    },
   },
 };
 
