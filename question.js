@@ -3,7 +3,7 @@ const Questions = {
   quiz: {
     start: true,
     nextId: "q1",
-    content: "Choose your job",
+    content: "Finish the quit and find your race.",
     components: [
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageButton()
@@ -24,17 +24,17 @@ const Questions = {
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageSelectMenu()
           .setCustomId("q1")
-          .setPlaceholder("Yes or No")
+          .setPlaceholder("Yes or no")
           .setMaxValues(1)
           .setMinValues(1)
           .addOptions([
             {
               label: "Yes",
-              value: "1",
+              value: "Yes",
             },
             {
               label: "No",
-              value: "2",
+              value: "No",
             },
           ])
       ),
@@ -52,17 +52,17 @@ const Questions = {
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageSelectMenu()
           .setCustomId("q2")
-          .setPlaceholder("Yes or No")
+          .setPlaceholder("Yes or no")
           .setMaxValues(1)
           .setMinValues(1)
           .addOptions([
             {
               label: "Yes",
-              value: "1",
+              value: "Yes",
             },
             {
               label: "No",
-              value: "2",
+              value: "No",
             },
           ])
       ),
@@ -80,17 +80,17 @@ const Questions = {
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageSelectMenu()
           .setCustomId("q3")
-          .setPlaceholder("Yes or No")
+          .setPlaceholder("Yes or no")
           .setMaxValues(1)
           .setMinValues(1)
           .addOptions([
             {
               label: "Yes",
-              value: "1",
+              value: "Yes",
             },
             {
               label: "No",
-              value: "2",
+              value: "No",
             },
           ])
       ),
@@ -108,17 +108,17 @@ const Questions = {
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageSelectMenu()
           .setCustomId("q4")
-          .setPlaceholder("Yes or No")
+          .setPlaceholder("Yes or no")
           .setMaxValues(1)
           .setMinValues(1)
           .addOptions([
             {
               label: "Yes",
-              value: "1",
+              value: "Yes",
             },
             {
               label: "No",
-              value: "2",
+              value: "No",
             },
           ])
       ),
@@ -142,11 +142,11 @@ const Questions = {
           .addOptions([
             {
               label: "Yes",
-              value: "1",
+              value: "Yes",
             },
             {
               label: "No",
-              value: "2",
+              value: "No",
             },
           ])
       ),
@@ -163,17 +163,17 @@ const Questions = {
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageSelectMenu()
           .setCustomId("q6")
-          .setPlaceholder("Yes or No")
+          .setPlaceholder("Yes or no")
           .setMaxValues(1)
           .setMinValues(1)
           .addOptions([
             {
               label: "Yes",
-              value: "1",
+              value: "Yes",
             },
             {
               label: "No",
-              value: "2",
+              value: "No",
             },
           ])
       ),
