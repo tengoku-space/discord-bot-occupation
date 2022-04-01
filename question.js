@@ -18,30 +18,23 @@ const Questions = {
     start: false,
     nextId: "q2",
     embeds: [
-      new Discord.MessageEmbed()
-        .setTitle("Q1: What do you want to eat?")
-        .setDescription("<A> Apple.\n<B> Banana.\n<C> Orange.")
-        .setImage("https://pbs.twimg.com/media/FNQUtZ0VIAA4N5s?format=jpg"),
+      new Discord.MessageEmbed().setTitle("#1 Do you wanna get higher?"),
     ],
     components: [
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageSelectMenu()
           .setCustomId("q1")
-          .setPlaceholder("Choose answer")
+          .setPlaceholder("Yes or No")
           .setMaxValues(1)
           .setMinValues(1)
           .addOptions([
             {
-              label: "A",
-              value: "A",
+              label: "Yes",
+              value: "1",
             },
             {
-              label: "B",
-              value: "B",
-            },
-            {
-              label: "C",
-              value: "C",
+              label: "No",
+              value: "2",
             },
           ])
       ),
@@ -49,32 +42,138 @@ const Questions = {
   },
   q2: {
     start: false,
-    content: "Q2: What's your favorite color?\n",
+    nextId: "q3",
     embeds: [
-        new Discord.MessageEmbed()
-          .setTitle("Q2: What's your favorite color?")
-          .setDescription("<A> Red.\n<B> Green.\n<C> Blue.")
-          .setImage("https://pbs.twimg.com/media/FNQUtZ0VIAA4N5s?format=jpg"),
-      ],
+      new Discord.MessageEmbed().setTitle(
+        "#2 Would you sacrifice a loved one to save a dozen strangers?"
+      ),
+    ],
     components: [
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageSelectMenu()
           .setCustomId("q2")
-          .setPlaceholder("Choose answer")
+          .setPlaceholder("Yes or No")
           .setMaxValues(1)
           .setMinValues(1)
           .addOptions([
             {
-              label: "A",
-              value: "A",
+              label: "Yes",
+              value: "1",
             },
             {
-              label: "B",
-              value: "B",
+              label: "No",
+              value: "2",
+            },
+          ])
+      ),
+    ],
+  },
+  q3: {
+    start: false,
+    nextId: "q4",
+    embeds: [
+      new Discord.MessageEmbed().setTitle(
+        "#3 Do you think you will have any regrets when you’re 90?"
+      ),
+    ],
+    components: [
+      new Discord.MessageActionRow().addComponents(
+        new Discord.MessageSelectMenu()
+          .setCustomId("q3")
+          .setPlaceholder("Yes or No")
+          .setMaxValues(1)
+          .setMinValues(1)
+          .addOptions([
+            {
+              label: "Yes",
+              value: "1",
             },
             {
-              label: "C",
-              value: "C",
+              label: "No",
+              value: "2",
+            },
+          ])
+      ),
+    ],
+  },
+  q4: {
+    start: false,
+    nextId: "q5",
+    embeds: [
+      new Discord.MessageEmbed().setTitle(
+        "#4 Do you think justice really exists?"
+      ),
+    ],
+    components: [
+      new Discord.MessageActionRow().addComponents(
+        new Discord.MessageSelectMenu()
+          .setCustomId("q4")
+          .setPlaceholder("Yes or No")
+          .setMaxValues(1)
+          .setMinValues(1)
+          .addOptions([
+            {
+              label: "Yes",
+              value: "1",
+            },
+            {
+              label: "No",
+              value: "2",
+            },
+          ])
+      ),
+    ],
+  },
+  q5: {
+    start: false,
+    nextId: "q6",
+    embeds: [
+      new Discord.MessageEmbed().setTitle(
+        "#5 If a stranger offered to give your family 1 million dollars if you go to jail for 10 years, would you do it?"
+      ),
+    ],
+    components: [
+      new Discord.MessageActionRow().addComponents(
+        new Discord.MessageSelectMenu()
+          .setCustomId("q5")
+          .setPlaceholder("Yes or no")
+          .setMaxValues(1)
+          .setMinValues(1)
+          .addOptions([
+            {
+              label: "Yes",
+              value: "1",
+            },
+            {
+              label: "No",
+              value: "2",
+            },
+          ])
+      ),
+    ],
+  },
+  q6: {
+    start: false,
+    embeds: [
+      new Discord.MessageEmbed().setTitle(
+        "#6 When making a decision, you rely more on your feelings than on analysis of the situation."
+      ),
+    ],
+    components: [
+      new Discord.MessageActionRow().addComponents(
+        new Discord.MessageSelectMenu()
+          .setCustomId("q6")
+          .setPlaceholder("Yes or No")
+          .setMaxValues(1)
+          .setMinValues(1)
+          .addOptions([
+            {
+              label: "Yes",
+              value: "1",
+            },
+            {
+              label: "No",
+              value: "2",
             },
           ])
       ),
