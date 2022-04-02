@@ -13,6 +13,7 @@ const ROLES = [
   "Shinobi Genshi", // 5
 ];
 const CHANNEL_ID = "958138084699033620";
+const GUILD_ID = "532998959002550287";
 
 //! Const
 const client = new Discord.Client({
@@ -26,6 +27,7 @@ const client = new Discord.Client({
 });
 
 //! Local variable
+let guild;
 let channel;
 const answers = {};
 
@@ -33,6 +35,7 @@ const answers = {};
 client.once("ready", async () => {
   console.log(`Logged in as ${client.user.tag}`);
   channel = await client.channels.fetch(CHANNEL_ID);
+  guild = await client.guilds.cache.find((u) => u.id === GUILD_ID);
   channel.send({
     content: Questions.quiz.content,
     components: Questions.quiz.components,
@@ -41,19 +44,16 @@ client.once("ready", async () => {
 
   initButtonCollector();
   initMenuCollector();
-
-  const guild = client.guilds.cache.find((u) => u.id === "532998959002550287");
-
-  const en = guild.members.cache.find((u) => u.id === "342869769239920641");
 });
 
 // New user joined
-client.on("guildMemberAdd", (newUser) => {
-  if (checkRoleExist(newUser)) {
+client.on("guildMemberAdd", async (newUser) => {
+  if (await checkRoleExist(newUser)) {
     // already had a role
   } else {
+    const newRole = await guild.roles.cache.find((r) => r.name === NEW_ROLE);
     // new user
-    newUser.roles.add(NEW_ROLE);
+    await newUser.roles.add(newRole);
   }
 });
 
