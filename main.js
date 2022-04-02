@@ -41,11 +41,14 @@ client.once("ready", async () => {
 
   initButtonCollector();
   initMenuCollector();
+
+  const guild = client.guilds.cache.find((u) => u.id === "532998959002550287");
+
+  const en = guild.members.cache.find((u) => u.id === "342869769239920641");
 });
 
 // New user joined
 client.on("guildMemberAdd", (newUser) => {
-  // console.log(newUser);
   if (checkRoleExist(newUser)) {
     // already had a role
   } else {
@@ -54,9 +57,9 @@ client.on("guildMemberAdd", (newUser) => {
   }
 });
 
-const checkRoleExist = (user) => {
-  let role = user.guild.roles.filter((role) => !(role.name in ROLES));
-  return role.length > 0;
+const checkRoleExist = async (user) => {
+  const roles = user.roles.cache.filter((r) => ROLES.includes(r.name));
+  return roles.size > 0;
 };
 
 const initButtonCollector = () => {
