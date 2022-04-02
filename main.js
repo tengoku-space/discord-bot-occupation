@@ -3,6 +3,7 @@ const Questions = require("./question");
 
 //! Config
 const TOKEN = "OTU2ODYxMDM4MTAyNDcwNjU4.Yj2YSQ.L_rOW3g5feySOv5Y6tTDl5KhNiE";
+const NEW_ROLE = "No Race";
 const ROLES = [
   "Aviator", // 0
   "Guardian", // 1
@@ -44,19 +45,12 @@ client.once("ready", async () => {
 
 // New user joined
 client.on("guildMemberAdd", (newUser) => {
+  // console.log(newUser);
   if (checkRoleExist(newUser)) {
     // already had a role
-    channel.updateOverwrite(newUser, {
-      permissions: [],
-    });
   } else {
     // new user
-    channel.updateOverwrite(newUser, {
-      permissions: [
-        Discord.Permissions.FLAGS.VIEW_CHANNEL,
-        Discord.Permissions.FLAGS.READ_MESSAGE_HISTORY,
-      ],
-    });
+    newUser.roles.add(NEW_ROLE);
   }
 });
 
@@ -182,6 +176,11 @@ const checkAnswers = async (interaction) => {
   );
   await interaction.member.roles.add(role);
   interaction.followUp({ content: `You're ${roleName}.`, ephemeral: true });
+
+  const newRole = interaction.member.guild.roles.cache.find(
+    (r) => r.name === NEW_ROLE
+  );
+  await interaction.member.roles.remove(newRole);
 };
 
 client.login(TOKEN);
