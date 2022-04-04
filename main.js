@@ -3,7 +3,7 @@ const Questions = require("./question");
 
 //! Config
 const TOKEN = "OTU2ODYxMDM4MTAyNDcwNjU4.Yj2YSQ.L_rOW3g5feySOv5Y6tTDl5KhNiE";
-const NEW_ROLE = "No Race";
+const NEW_ROLE = "Verified Sweetie";
 const ROLES = [
   "Aviator", // 0
   "Confessor", // 1
