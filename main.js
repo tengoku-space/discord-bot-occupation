@@ -12,7 +12,7 @@ const ROLES = [
   "Treatment Squad", // 4
   "Bounty Ranger", // 5
 ];
-const CHANNEL_ID = "958138084699033620";
+const CHANNEL_ID = "960473752540413974";
 const GUILD_ID = "532998959002550287";
 
 //! Const
