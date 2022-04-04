@@ -15,8 +15,8 @@ const Questions = {
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageButton()
           .setCustomId("quiz")
-          .setEmoji("🎈")
-          .setLabel("Start Quiz")
+          .setEmoji("💥")
+          .setLabel("Start Your Occupation")
           .setStyle("SUCCESS")
       ),
     ],
