@@ -5,6 +5,7 @@ const Questions = {
     nextId: "q1",
     embeds: [
       new Discord.MessageEmbed()
+        .setColor("#008e44")
         .setTitle("Sweetie Recruiter")
         .setDescription("Please take your time to finish our quiz.")
         .setImage(
@@ -31,6 +32,7 @@ const Questions = {
     nextId: "q2",
     embeds: [
       new Discord.MessageEmbed()
+        .setColor("#e3a725")
         .setTitle("#1 Do you wanna get higher?")
         .setFooter({
           text: "Crypto Sweethearts",
@@ -68,6 +70,7 @@ const Questions = {
     nextId: "q3",
     embeds: [
       new Discord.MessageEmbed()
+        .setColor("#4d2980")
         .setTitle(
           "#2 Would you sacrifice a loved one to save a dozen strangers?"
         )
@@ -107,6 +110,7 @@ const Questions = {
     nextId: "q4",
     embeds: [
       new Discord.MessageEmbed()
+        .setColor("#008e44")
         .setTitle("#3 Do you think you will have any regrets when you’re 90?")
         .setFooter({
           text: "Crypto Sweethearts",
@@ -144,6 +148,7 @@ const Questions = {
     nextId: "q5",
     embeds: [
       new Discord.MessageEmbed()
+        .setColor("#ae2513")
         .setTitle("#4 Do you think justice really exists?")
         .setFooter({
           text: "Crypto Sweethearts",
@@ -181,6 +186,7 @@ const Questions = {
     nextId: "q6",
     embeds: [
       new Discord.MessageEmbed()
+        .setColor("#0f819c")
         .setTitle(
           "#5 If a stranger offered to give your family 1 million dollars if you go to jail for 10 years, would you do it?"
         )
@@ -219,6 +225,7 @@ const Questions = {
     start: false,
     embeds: [
       new Discord.MessageEmbed()
+        .setColor("#272731")
         .setTitle(
           "#6 When making a decision, you rely more on your feelings than on analysis of the situation."
         )
