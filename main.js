@@ -66,9 +66,9 @@ client.on("guildMemberAdd", async (newUser) => {
   if (await checkRoleExist(newUser)) {
     // already had a role
   } else {
-    const newRole = await guild.roles.cache.find((r) => r.name === NEW_ROLE);
-    // new user
-    await newUser.roles.add(newRole);
+    // const newRole = await guild.roles.cache.find((r) => r.name === NEW_ROLE);
+    // // new user
+    // await newUser.roles.add(newRole);
   }
 });
 
