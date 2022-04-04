@@ -207,7 +207,7 @@ const checkAnswers = async (interaction) => {
         })
         .setTimestamp(),
     ],
-    content: `You're ${roleName}.`,
+    // content: `You're ${roleName}.`,
     ephemeral: true,
   });
 
