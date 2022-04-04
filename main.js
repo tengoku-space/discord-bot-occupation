@@ -3,7 +3,10 @@ const Questions = require("./question");
 require("dotenv").config();
 
 //! Config
-const TOKEN = "OTU2ODYxMDM4MTAyNDcwNjU4.Yj2YSQ.L_rOW3g5feySOv5Y6tTDl5KhNiE";
+const TOKEN = process.env.DISCORD_BOT_TOKEN;
+const CHANNEL_ID = process.env.CHANNEL_ID;
+const GUILD_ID = process.env.GUILD_ID;
+
 const NEW_ROLE = "Verified Sweetie";
 const ROLES = [
   "Aviator", // 0
@@ -13,8 +16,6 @@ const ROLES = [
   "Treatment Squad", // 4
   "Bounty Ranger", // 5
 ];
-const CHANNEL_ID = process.env.CHANNEL_ID;
-const GUILD_ID = process.env.GUILD_ID;
 
 const ROLES_EMBED_IMG = {};
 ROLES_EMBED_IMG[ROLES[0]] =
