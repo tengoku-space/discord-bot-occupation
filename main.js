@@ -6,11 +6,11 @@ const TOKEN = "OTU2ODYxMDM4MTAyNDcwNjU4.Yj2YSQ.L_rOW3g5feySOv5Y6tTDl5KhNiE";
 const NEW_ROLE = "No Race";
 const ROLES = [
   "Aviator", // 0
-  "Guardian", // 1
-  "Treatment Team", // 2
-  "Bounty Hunter", // 3
-  "Prayer", // 4
-  "Shinobi Genshi", // 5
+  "Confessor", // 1
+  "Kunoichi", // 2
+  "Guard of Tengoku", // 3
+  "Treatment Squad", // 4
+  "Bounty Ranger", // 5
 ];
 const CHANNEL_ID = "958138084699033620";
 const GUILD_ID = "532998959002550287";
