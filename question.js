@@ -9,7 +9,12 @@ const Questions = {
         .setDescription("Please take your time to finish our quiz.")
         .setImage(
           "https://cdn.discordapp.com/attachments/960443366133342269/960491286278856764/Logo_Matrix.JPG"
-        ),
+        )
+        .setFooter({
+          text: "Crypto Sweethearts",
+          iconURL:
+            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+        }),
     ],
     components: [
       new Discord.MessageActionRow().addComponents(
@@ -25,7 +30,14 @@ const Questions = {
     start: false,
     nextId: "q2",
     embeds: [
-      new Discord.MessageEmbed().setTitle("#1 Do you wanna get higher?"),
+      new Discord.MessageEmbed()
+        .setTitle("#1 Do you wanna get higher?")
+        .setFooter({
+          text: "Crypto Sweethearts",
+          iconURL:
+            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+        })
+        .setTimestamp(),
     ],
     components: [
       new Discord.MessageActionRow().addComponents(
@@ -55,9 +67,16 @@ const Questions = {
     start: false,
     nextId: "q3",
     embeds: [
-      new Discord.MessageEmbed().setTitle(
-        "#2 Would you sacrifice a loved one to save a dozen strangers?"
-      ),
+      new Discord.MessageEmbed()
+        .setTitle(
+          "#2 Would you sacrifice a loved one to save a dozen strangers?"
+        )
+        .setFooter({
+          text: "Crypto Sweethearts",
+          iconURL:
+            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+        })
+        .setTimestamp(),
     ],
     components: [
       new Discord.MessageActionRow().addComponents(
@@ -87,9 +106,14 @@ const Questions = {
     start: false,
     nextId: "q4",
     embeds: [
-      new Discord.MessageEmbed().setTitle(
-        "#3 Do you think you will have any regrets when you’re 90?"
-      ),
+      new Discord.MessageEmbed()
+        .setTitle("#3 Do you think you will have any regrets when you’re 90?")
+        .setFooter({
+          text: "Crypto Sweethearts",
+          iconURL:
+            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+        })
+        .setTimestamp(),
     ],
     components: [
       new Discord.MessageActionRow().addComponents(
@@ -119,9 +143,14 @@ const Questions = {
     start: false,
     nextId: "q5",
     embeds: [
-      new Discord.MessageEmbed().setTitle(
-        "#4 Do you think justice really exists?"
-      ),
+      new Discord.MessageEmbed()
+        .setTitle("#4 Do you think justice really exists?")
+        .setFooter({
+          text: "Crypto Sweethearts",
+          iconURL:
+            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+        })
+        .setTimestamp(),
     ],
     components: [
       new Discord.MessageActionRow().addComponents(
@@ -151,9 +180,16 @@ const Questions = {
     start: false,
     nextId: "q6",
     embeds: [
-      new Discord.MessageEmbed().setTitle(
-        "#5 If a stranger offered to give your family 1 million dollars if you go to jail for 10 years, would you do it?"
-      ),
+      new Discord.MessageEmbed()
+        .setTitle(
+          "#5 If a stranger offered to give your family 1 million dollars if you go to jail for 10 years, would you do it?"
+        )
+        .setFooter({
+          text: "Crypto Sweethearts",
+          iconURL:
+            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+        })
+        .setTimestamp(),
     ],
     components: [
       new Discord.MessageActionRow().addComponents(
@@ -182,9 +218,16 @@ const Questions = {
   q6: {
     start: false,
     embeds: [
-      new Discord.MessageEmbed().setTitle(
-        "#6 When making a decision, you rely more on your feelings than on analysis of the situation."
-      ),
+      new Discord.MessageEmbed()
+        .setTitle(
+          "#6 When making a decision, you rely more on your feelings than on analysis of the situation."
+        )
+        .setFooter({
+          text: "Crypto Sweethearts",
+          iconURL:
+            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+        })
+        .setTimestamp(),
     ],
     components: [
       new Discord.MessageActionRow().addComponents(

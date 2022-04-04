@@ -199,7 +199,13 @@ const checkAnswers = async (interaction) => {
     embeds: [
       new Discord.MessageEmbed()
         .setTitle(`You're ${roleName}.`)
-        .setImage(ROLES_EMBED_IMG[roleName]),
+        .setImage(ROLES_EMBED_IMG[roleName])
+        .setFooter({
+          text: "Crypto Sweethearts",
+          iconURL:
+            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+        })
+        .setTimestamp(),
     ],
     content: `You're ${roleName}.`,
     ephemeral: true,
