@@ -15,6 +15,20 @@ const ROLES = [
 const CHANNEL_ID = "960473752540413974";
 const GUILD_ID = "532998959002550287";
 
+const ROLES_EMBED_IMG = {};
+ROLES_EMBED_IMG[ROLES[0]] =
+  "https://cdn.discordapp.com/attachments/960443366133342269/960494282899341342/Aviator.jpg";
+ROLES_EMBED_IMG[ROLES[1]] =
+  "https://cdn.discordapp.com/attachments/960443366133342269/960494283637526578/Confessor.jpg";
+ROLES_EMBED_IMG[ROLES[2]] =
+  "https://cdn.discordapp.com/attachments/960443366133342269/960494283822092328/Kunoichi.jpg";
+ROLES_EMBED_IMG[ROLES[3]] =
+  "https://cdn.discordapp.com/attachments/960443366133342269/960494283155202068/Guard_of_Tengoku.jpg";
+ROLES_EMBED_IMG[ROLES[4]] =
+  "https://cdn.discordapp.com/attachments/960443366133342269/960494283385872444/Treatment_Squad.jpg";
+ROLES_EMBED_IMG[ROLES[5]] =
+  "https://cdn.discordapp.com/attachments/960443366133342269/960494284052787240/Bounty_Ranger.jpg";
+
 //! Const
 const client = new Discord.Client({
   intents: [
@@ -23,6 +37,7 @@ const client = new Discord.Client({
     Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
     Discord.Intents.FLAGS.GUILD_MEMBERS,
     Discord.Intents.FLAGS.GUILD_PRESENCES,
+    Discord.Intents.FLAGS.GUILD_INTEGRATIONS,
   ],
 });
 
@@ -37,9 +52,9 @@ client.once("ready", async () => {
   channel = await client.channels.fetch(CHANNEL_ID);
   guild = await client.guilds.cache.find((u) => u.id === GUILD_ID);
   channel.send({
-    content: Questions.quiz.content,
+    embeds: Questions.quiz.embeds,
     components: Questions.quiz.components,
-    ephemeral: true,
+    ephemeral: false,
   });
 
   initButtonCollector();
@@ -174,11 +189,19 @@ const checkAnswers = async (interaction) => {
   let idx = indexes[Math.floor(Math.random() * indexes.length)] || 0;
   // get role
   const roleName = ROLES[idx];
-  const role = interaction.member.guild.roles.cache.find(
+  const role = await interaction.member.guild.roles.cache.find(
     (r) => r.name === roleName
   );
   await interaction.member.roles.add(role);
-  interaction.followUp({ content: `You're ${roleName}.`, ephemeral: true });
+  interaction.followUp({
+    embeds: [
+      new Discord.MessageEmbed()
+        .setTitle(`You're ${roleName}.`)
+        .setImage(ROLES_EMBED_IMG[roleName]),
+    ],
+    content: `You're ${roleName}.`,
+    ephemeral: true,
+  });
 
   const newRole = interaction.member.guild.roles.cache.find(
     (r) => r.name === NEW_ROLE
