@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const Questions = require("./question");
+require("dotenv").config();
 
 //! Config
 const TOKEN = "OTU2ODYxMDM4MTAyNDcwNjU4.Yj2YSQ.L_rOW3g5feySOv5Y6tTDl5KhNiE";
@@ -12,8 +13,8 @@ const ROLES = [
   "Treatment Squad", // 4
   "Bounty Ranger", // 5
 ];
-const CHANNEL_ID = "960473752540413974";
-const GUILD_ID = "532998959002550287";
+const CHANNEL_ID = process.env.CHANNEL_ID;
+const GUILD_ID = process.env.GUILD_ID;
 
 const ROLES_EMBED_IMG = {};
 ROLES_EMBED_IMG[ROLES[0]] =
