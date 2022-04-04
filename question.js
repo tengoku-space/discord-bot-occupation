@@ -5,7 +5,8 @@ const Questions = {
     nextId: "q1",
     embeds: [
       new Discord.MessageEmbed()
-        .setTitle("Finish the quit and find your role.")
+        .setTitle("Sweetie Recruiter")
+        .setDescription("Please take your time to finish our quiz.")
         .setImage(
           "https://cdn.discordapp.com/attachments/960443366133342269/960491286278856764/Logo_Matrix.JPG"
         ),
