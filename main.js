@@ -17,19 +17,37 @@ const ROLES = [
   "Bounty Ranger", // 5
 ];
 
-const ROLES_EMBED_IMG = {};
-ROLES_EMBED_IMG[ROLES[0]] =
-  "https://cdn.discordapp.com/attachments/960443366133342269/960494282899341342/Aviator.jpg";
-ROLES_EMBED_IMG[ROLES[1]] =
-  "https://cdn.discordapp.com/attachments/960443366133342269/960494283637526578/Confessor.jpg";
-ROLES_EMBED_IMG[ROLES[2]] =
-  "https://cdn.discordapp.com/attachments/960443366133342269/960494283822092328/Kunoichi.jpg";
-ROLES_EMBED_IMG[ROLES[3]] =
-  "https://cdn.discordapp.com/attachments/960443366133342269/960494283155202068/Guard_of_Tengoku.jpg";
-ROLES_EMBED_IMG[ROLES[4]] =
-  "https://cdn.discordapp.com/attachments/960443366133342269/960494283385872444/Treatment_Squad.jpg";
-ROLES_EMBED_IMG[ROLES[5]] =
-  "https://cdn.discordapp.com/attachments/960443366133342269/960494284052787240/Bounty_Ranger.jpg";
+const ROLES_EMBED = {};
+ROLES_EMBED[ROLES[0]] = {
+  imgUrl:
+    "https://cdn.discordapp.com/attachments/960443366133342269/960494282899341342/Aviator.jpg",
+  color: "#112057",
+};
+ROLES_EMBED[ROLES[1]] = {
+  imgUrl:
+    "https://cdn.discordapp.com/attachments/960443366133342269/960494283637526578/Confessor.jpg",
+  color: "#e3a725",
+};
+ROLES_EMBED[ROLES[2]] = {
+  imgUrl:
+    "https://cdn.discordapp.com/attachments/960443366133342269/960494283822092328/Kunoichi.jpg",
+  color: "#4d2980",
+};
+ROLES_EMBED[ROLES[3]] = {
+  imgUrl:
+    "https://cdn.discordapp.com/attachments/960443366133342269/960494283155202068/Guard_of_Tengoku.jpg",
+  color: "#ae2513",
+};
+ROLES_EMBED[ROLES[4]] = {
+  imgUrl:
+    "https://cdn.discordapp.com/attachments/960443366133342269/960494283385872444/Treatment_Squad.jpg",
+  color: "#0f819c",
+};
+ROLES_EMBED[ROLES[5]] = {
+  imgUrl:
+    "https://cdn.discordapp.com/attachments/960443366133342269/960494284052787240/Bounty_Ranger.jpg",
+  color: "#272731",
+};
 
 //! Const
 const client = new Discord.Client({
@@ -198,8 +216,9 @@ const checkAnswers = async (interaction) => {
   interaction.followUp({
     embeds: [
       new Discord.MessageEmbed()
+        .setColor(ROLES_EMBED[roleName].color)
         .setTitle(`You're ${roleName}.`)
-        .setImage(ROLES_EMBED_IMG[roleName])
+        .setImage(ROLES_EMBED[roleName].imgUrl)
         .setFooter({
           text: "Crypto Sweethearts",
           iconURL:
