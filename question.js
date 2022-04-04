@@ -3,7 +3,13 @@ const Questions = {
   quiz: {
     start: true,
     nextId: "q1",
-    content: "Finish the quit and find your race.",
+    embeds: [
+      new Discord.MessageEmbed()
+        .setTitle("Finish the quit and find your role.")
+        .setImage(
+          "https://cdn.discordapp.com/attachments/960443366133342269/960491286278856764/Logo_Matrix.JPG"
+        ),
+    ],
     components: [
       new Discord.MessageActionRow().addComponents(
         new Discord.MessageButton()
