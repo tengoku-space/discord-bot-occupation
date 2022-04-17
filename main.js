@@ -190,7 +190,7 @@ const checkAnswers = async (interaction) => {
   // console.log(interaction.user.id, answers[interaction.user.id]);
   // TODO: hardcoding here
   const qIds = ["q1", "q2", "q3", "q4", "q5", "q6"];
-  const scores = [0, 0, 0, 0, 0, 0]; // an emtpy array match rolss
+  const scores = [0, 1, 0, 0, 1, 0]; // an emtpy array match rolss
 
   qIds.forEach((qid) => {
     const an = answers[interaction.user.id][qid];
