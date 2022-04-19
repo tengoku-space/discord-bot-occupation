@@ -80,6 +80,7 @@ client.once("ready", async () => {
     ephemeral: false,
   });
 
+  initActivity();
   initButtonCollector();
   initMenuCollector();
 });
@@ -104,6 +105,13 @@ const clearPreviewChannelMsg = async () => {
     .forEach(async (msg) => {
       await msg.delete();
     });
+};
+
+const initActivity = () => {
+  client.user.setActivity("Elysium", {
+    type: "STREAMING",
+    url: "https://www.youtube.com/watch?v=jCzQZ2VeVAk",
+  });
 };
 
 const initButtonCollector = () => {
