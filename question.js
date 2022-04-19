@@ -33,7 +33,7 @@ const Questions = {
     embeds: [
       new Discord.MessageEmbed()
         .setColor("#e3a725")
-        .setTitle("#1 Do you wanna get higher?")
+        .setTitle("#1 Are you afraid of heights?")
         .setFooter({
           text: "Crypto Sweethearts",
           iconURL:
@@ -61,8 +61,8 @@ const Questions = {
       ),
     ],
     scores: {
-      Yes: [0, 3, 5],
-      No: [1, 2, 4],
+      Yes: [1, 2, 4],
+      No: [0, 3, 5],
     },
   },
   q2: {
