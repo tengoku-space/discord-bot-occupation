@@ -7,7 +7,7 @@ const TOKEN = process.env.DISCORD_BOT_TOKEN;
 const CHANNEL_ID = process.env.CHANNEL_ID;
 const GUILD_ID = process.env.GUILD_ID;
 
-const NEW_ROLE = "Verified Sweetie";
+const MARK_ROLE = "Verified Sweetie";
 const ROLES = [
   "Aviator", // 0
   "Confessor", // 1
@@ -81,21 +81,16 @@ client.once("ready", async () => {
   initMenuCollector();
 });
 
-// New user joined
-client.on("guildMemberAdd", async (newUser) => {
-  if (await checkRoleExist(newUser)) {
-    // already had a role
-  } else {
-    // const newRole = await guild.roles.cache.find((r) => r.name === NEW_ROLE);
-    // // new user
-    // await newUser.roles.add(newRole);
-  }
-});
-
-const checkRoleExist = async (user) => {
-  const roles = user.roles.cache.filter((r) => ROLES.includes(r.name));
-  return roles.size > 0;
-};
+// // New user joined
+// client.on("guildMemberAdd", async (newUser) => {
+//   if (await checkRoleExist(newUser)) {
+//     // already had a role
+//   } else {
+//     const newRole = await guild.roles.cache.find((r) => r.name === MARK_ROLE);
+//     // new user
+//     await newUser.roles.add(newRole);
+//   }
+// });
 
 const initButtonCollector = () => {
   const filter = (interaction) => interaction.isButton();
@@ -107,7 +102,16 @@ const initButtonCollector = () => {
   collector.on("collect", async (interaction) => {
     const uid = interaction.user.id;
     await interaction.deferUpdate();
-    if (!answers[uid]) {
+
+    if (await checkRoleExist(interaction.user)) {
+      // already had a role
+      const roleNames = await getRoleNames(interaction.user);
+      const roleName = roleNames[0];
+      // Remove mark role
+      await removRole(interaction, MARK_ROLE);
+      // Show answer
+      await replyTheAnswer(interaction, roleName);
+    } else if (!answers[uid]) {
       answers[uid] = {};
       await nextQuestion(interaction);
     } else if (Object.keys(answers[uid]).length === 0) {
@@ -137,7 +141,15 @@ const initMenuCollector = () => {
     saveAnswer(interaction);
     await interaction.deferUpdate();
     await disableQuestion(interaction);
-    if (Questions[interaction.customId].nextId) {
+    if (await checkRoleExist(interaction.user)) {
+      // already had a role
+      const roleNames = await getRoleNames(interaction.user);
+      const roleName = roleNames[0];
+      // Remove mark role
+      await removRole(interaction, MARK_ROLE);
+      // Show answer
+      await replyTheAnswer(interaction, roleName);
+    } else if (Questions[interaction.customId].nextId) {
       await nextQuestion(interaction);
     } else {
       await checkAnswers(interaction);
@@ -186,9 +198,27 @@ const nextQuestion = async (interaction, nextid) => {
   }
 };
 
+const checkRoleExist = async (user) => {
+  if (user.roles) {
+    // GuildMemeber
+    const roles = await user.roles.cache.filter((r) => ROLES.includes(r.name));
+    return roles.size > 0;
+  }
+  // User
+  const member = await guild.members.cache.get(user.id);
+  const roles = await member.roles.cache.filter((r) => ROLES.includes(r.name));
+  return roles.size > 0;
+};
+
+const getRoleNames = async (user) => {
+  const member = await guild.members.cache.get(user.id);
+  return await member.roles.cache
+    .filter((r) => ROLES.includes(r.name))
+    .map((r) => r.name);
+};
+
 const checkAnswers = async (interaction) => {
-  // console.log(interaction.user.id, answers[interaction.user.id]);
-  // TODO: hardcoding here
+  //! hardcoding here
   const qIds = ["q1", "q2", "q3", "q4", "q5", "q6"];
   const scores = [0, 1, 0, 0, 1, 0]; // an emtpy array match rolss
 
@@ -207,12 +237,30 @@ const checkAnswers = async (interaction) => {
   }
 
   let idx = indexes[Math.floor(Math.random() * indexes.length)] || 0;
-  // get role
   const roleName = ROLES[idx];
+  // Add occupation role
+  await addRole(interaction, roleName);
+  // Remove mark role
+  await removRole(interaction, MARK_ROLE);
+  // Show answer
+  await replyTheAnswer(interaction, roleName);
+};
+
+const addRole = async (interaction, roleName) => {
   const role = await interaction.member.guild.roles.cache.find(
     (r) => r.name === roleName
   );
   await interaction.member.roles.add(role);
+};
+
+const removRole = async (interaction, roleName) => {
+  const markRole = interaction.member.guild.roles.cache.find(
+    (r) => r.name === roleName
+  );
+  await interaction.member.roles.remove(markRole);
+};
+
+const replyTheAnswer = async (interaction, roleName) => {
   interaction.followUp({
     embeds: [
       new Discord.MessageEmbed()
@@ -229,11 +277,6 @@ const checkAnswers = async (interaction) => {
     // content: `You're ${roleName}.`,
     ephemeral: true,
   });
-
-  const newRole = interaction.member.guild.roles.cache.find(
-    (r) => r.name === NEW_ROLE
-  );
-  await interaction.member.roles.remove(newRole);
 };
 
 client.login(TOKEN);
