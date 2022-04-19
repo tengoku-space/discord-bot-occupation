@@ -71,7 +71,10 @@ client.once("ready", async () => {
   console.log(`Logged in as ${client.user.tag}`);
   channel = await client.channels.fetch(CHANNEL_ID);
   guild = await client.guilds.cache.find((u) => u.id === GUILD_ID);
-  channel.send({
+
+  await channel.send("Cleaning messages...");
+  await clearPreviewChannelMsg();
+  await channel.send({
     embeds: Questions.quiz.embeds,
     components: Questions.quiz.components,
     ephemeral: false,
@@ -91,6 +94,17 @@ client.once("ready", async () => {
 //     await newUser.roles.add(newRole);
 //   }
 // });
+
+const clearPreviewChannelMsg = async () => {
+  const msgs = await channel.messages.fetch({
+    limit: 100,
+  });
+  await msgs
+    .filter((msg) => msg.author.bot)
+    .forEach(async (msg) => {
+      await msg.delete();
+    });
+};
 
 const initButtonCollector = () => {
   const filter = (interaction) => interaction.isButton();
