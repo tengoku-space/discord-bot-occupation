@@ -6,15 +6,15 @@ const Questions = {
     embeds: [
       new Discord.MessageEmbed()
         .setColor("#008e44")
-        .setTitle("Sweetie Recruiter")
+        .setTitle("Tengoku Recruiter")
         .setDescription("Please take your time to finish our quiz.")
         .setImage(
           "https://cdn.discordapp.com/attachments/960443366133342269/960491286278856764/Logo_Matrix.JPG"
         )
         .setFooter({
-          text: "Crypto Sweethearts",
+          text: "TENGOKU",
           iconURL:
-            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+            "https://cdn.discordapp.com/attachments/532998959002550296/975025358527139930/Tengoku.jpg",
         }),
     ],
     components: [
@@ -35,9 +35,9 @@ const Questions = {
         .setColor("#e3a725")
         .setTitle("#1 Are you afraid of heights?")
         .setFooter({
-          text: "Crypto Sweethearts",
+          text: "TENGOKU",
           iconURL:
-            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+            "https://cdn.discordapp.com/attachments/532998959002550296/975025358527139930/Tengoku.jpg",
         })
         .setTimestamp(),
     ],
@@ -75,9 +75,9 @@ const Questions = {
           "#2 Would you sacrifice a loved one to save a dozen strangers?"
         )
         .setFooter({
-          text: "Crypto Sweethearts",
+          text: "TENGOKU",
           iconURL:
-            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+            "https://cdn.discordapp.com/attachments/532998959002550296/975025358527139930/Tengoku.jpg",
         })
         .setTimestamp(),
     ],
@@ -113,9 +113,9 @@ const Questions = {
         .setColor("#008e44")
         .setTitle("#3 Do you think you will have any regrets when you’re 90?")
         .setFooter({
-          text: "Crypto Sweethearts",
+          text: "TENGOKU",
           iconURL:
-            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+            "https://cdn.discordapp.com/attachments/532998959002550296/975025358527139930/Tengoku.jpg",
         })
         .setTimestamp(),
     ],
@@ -151,9 +151,9 @@ const Questions = {
         .setColor("#ae2513")
         .setTitle("#4 Do you think justice really exists?")
         .setFooter({
-          text: "Crypto Sweethearts",
+          text: "TENGOKU",
           iconURL:
-            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+            "https://cdn.discordapp.com/attachments/532998959002550296/975025358527139930/Tengoku.jpg",
         })
         .setTimestamp(),
     ],
@@ -191,9 +191,9 @@ const Questions = {
           "#5 If a stranger offered to give your family 1 million dollars if you go to jail for 10 years, would you do it?"
         )
         .setFooter({
-          text: "Crypto Sweethearts",
+          text: "TENGOKU",
           iconURL:
-            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+            "https://cdn.discordapp.com/attachments/532998959002550296/975025358527139930/Tengoku.jpg",
         })
         .setTimestamp(),
     ],
@@ -230,9 +230,9 @@ const Questions = {
           "#6 When making a decision, you rely more on your feelings than on analysis of the situation."
         )
         .setFooter({
-          text: "Crypto Sweethearts",
+          text: "TENGOKU",
           iconURL:
-            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+            "https://cdn.discordapp.com/attachments/532998959002550296/975025358527139930/Tengoku.jpg",
         })
         .setTimestamp(),
     ],

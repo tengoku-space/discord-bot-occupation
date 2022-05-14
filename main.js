@@ -4,8 +4,8 @@ require("dotenv").config();
 
 //! Config
 const TOKEN = process.env.DISCORD_BOT_TOKEN;
-const CHANNEL_ID = process.env.CHANNEL_ID;
 const GUILD_ID = process.env.GUILD_ID;
+const CHANNEL_ID = process.env.CHANNEL_ID;
 
 const MARK_ROLE = "Verified Sweetie";
 const ROLES = [
@@ -290,9 +290,9 @@ const replyTheAnswer = async (interaction, roleName) => {
         .setTitle(`You're ${roleName}.`)
         .setImage(ROLES_EMBED[roleName].imgUrl)
         .setFooter({
-          text: "Crypto Sweethearts",
+          text: "TENGOKU",
           iconURL:
-            "https://cdn.discordapp.com/attachments/960535813840588900/960544663285153802/Logo.png",
+            "https://cdn.discordapp.com/attachments/532998959002550296/975025358527139930/Tengoku.jpg",
         })
         .setTimestamp(),
     ],
