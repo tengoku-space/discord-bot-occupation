@@ -8,7 +8,7 @@ Take quiz and choose occupation
   * `dotenv: v16`
 
 ## Run project
-1. Initialize project, run `npm i`.
+1. Initialize project, run `npm i` in project root folder.
 2. Create a config file named `.env`, content refered to `.env.sample`.
 3. Run project in development mode, run `npm run dev-start`.
 4. Run project in deployment mode, run `node main.js`.
