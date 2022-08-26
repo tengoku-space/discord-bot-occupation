@@ -23,4 +23,4 @@ CHANNEL_ID=XXXXXXXXXXXXXXXXXX
 * `DISCORD_BOT_TOKEN`, discord bot token, find or create new on [discord developers](https://discord.com/developers/applications).
 * `GUILD_ID` and `CHANNEL_ID`
   * Turn on **Developer Mode** in Discord -> Setting -> APP SETTINGS -> Advanced 
-  * Right click the guild and channel in Discord to show the IDs.
+  * Right click the **guild** and **channel** in Tengoku Discord to show IDs.
